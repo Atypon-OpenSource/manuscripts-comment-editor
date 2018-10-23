@@ -1,6 +1,5 @@
 interface Model {
   _id: string
-  objectType: string
 }
 
 export interface Keyword extends Model {

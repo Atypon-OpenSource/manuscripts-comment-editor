@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/comment-editor",
   "description": "React components for editing and viewing manuscript comments",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://gitlab.com/mpapp-private/manuscripts-comment-editor",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -19,12 +19,19 @@
     "typecheck": "tsc --noEmit",
     "lint": "tslint --project tsconfig.json",
     "prepublishOnly": "yarn typecheck && yarn lint && yarn build",
-    "prettier": "prettier --write \"{src}/**/*.{ts,tsx}\""
+    "prettier": "prettier --write \"{src}/**/*.{ts,tsx}\"",
+    "test": "jest"
   },
   "publishConfig": {
     "@manuscripts:registry": "https://atypon-npm-registry.herokuapp.com/"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@types/jest": "^23.3.7",
     "@types/prosemirror-commands": "^1.0.0",
     "@types/prosemirror-history": "^1.0.0",
     "@types/prosemirror-inputrules": "^1.0.2",
@@ -35,7 +42,11 @@
     "@types/react": "^16.4.16",
     "@types/react-dom": "^16.0.9",
     "@types/react-select": "^2.0.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "husky": "^1.1.2",
+    "jest": "^23.6.0",
     "prettier": "^1.10.2",
     "prosemirror-commands": "^1.0.4",
     "prosemirror-history": "^1.0.0",
@@ -43,6 +54,7 @@
     "prosemirror-keymap": "^1.0.0",
     "prosemirror-model": "^1.6.2",
     "prosemirror-state": "^1.2.2",
+    "prosemirror-test-builder": "^1.0.1",
     "prosemirror-view": "^1.6.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

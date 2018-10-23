@@ -4,7 +4,12 @@ module.exports = {
       plugins: [
         'react-hot-loader/babel',
       ],
-    }
+    },
+    test: {
+      plugins: [
+        'transform-es2015-modules-commonjs',
+      ],
+    },
   },
   plugins: [
     '@babel/proposal-class-properties',

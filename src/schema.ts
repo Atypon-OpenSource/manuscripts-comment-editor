@@ -68,14 +68,15 @@ export const schema = new Schema<Nodes, Marks>({
   },
   nodes: {
     blockquote: {
-      content: 'block+',
+      content: 'paragraph+',
       defining: true,
       group: 'block',
       parseDOM: [{ tag: 'blockquote' }],
       toDOM: () => ['blockquote', 0],
     },
     comment: {
-      content: 'block+',
+      content: '(paragraph | blockquote)? paragraph+',
+      parseDOM: [{ tag: 'div' }],
       toDOM: () => ['div', 0],
     },
     keyword: {
@@ -140,7 +141,9 @@ export const schema = new Schema<Nodes, Marks>({
         return ['p', 0]
       },
     },
-    text: {},
+    text: {
+      group: 'inline',
+    },
   },
   topNode: 'comment',
 })
