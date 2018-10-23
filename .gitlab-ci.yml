@@ -1,0 +1,8 @@
+build:
+  script:
+    - yarn install --frozen-lockfile --non-interactive
+    - yarn run typecheck
+    - yarn run lint
+    - yarn run build
+  tags:
+    - nodejs-8
