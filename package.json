@@ -25,6 +25,16 @@
   "publishConfig": {
     "@manuscripts:registry": "https://atypon-npm-registry.herokuapp.com/"
   },
+  "dependencies": {
+    "prosemirror-commands": "^1.0.4",
+    "prosemirror-history": "^1.0.0",
+    "prosemirror-inputrules": "^1.0.1",
+    "prosemirror-keymap": "^1.0.0",
+    "prosemirror-model": "^1.6.2",
+    "prosemirror-state": "^1.2.2",
+    "prosemirror-view": "^1.6.3",
+    "react-select": "^2.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
@@ -48,17 +58,9 @@
     "husky": "^1.1.2",
     "jest": "^23.6.0",
     "prettier": "^1.10.2",
-    "prosemirror-commands": "^1.0.4",
-    "prosemirror-history": "^1.0.0",
-    "prosemirror-inputrules": "^1.0.1",
-    "prosemirror-keymap": "^1.0.0",
-    "prosemirror-model": "^1.6.2",
-    "prosemirror-state": "^1.2.2",
     "prosemirror-test-builder": "^1.0.1",
-    "prosemirror-view": "^1.6.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-select": "^2.1.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.6",
     "rollup-plugin-typescript2": "^0.17.1",
@@ -71,15 +73,7 @@
     "typescript": "^3.0.1"
   },
   "peerDependencies": {
-    "prosemirror-commands": "^1.0.4",
-    "prosemirror-history": "^1.0.0",
-    "prosemirror-inputrules": "^1.0.1",
-    "prosemirror-keymap": "^1.0.0",
-    "prosemirror-model": "^1.6.2",
-    "prosemirror-state": "^1.2.2",
-    "prosemirror-view": "^1.6.3",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-select": "^2.1.0"
+    "react-dom": "^16.5.2"
   }
 }
