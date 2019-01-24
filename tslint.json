@@ -9,7 +9,6 @@
   "rules": {
     "prettier": true,
     "interface-name": [true, "never-prefix"],
-    "jsx-no-lambda": false,
     "no-implicit-dependencies": [true, "dev"],
     "only-arrow-functions": true,
     "no-submodule-imports": false,
