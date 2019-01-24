@@ -42,7 +42,10 @@ export class Comment extends React.Component<Props> {
   }
 
   public componentDidMount() {
-    this.editorRef.current!.appendChild(this.view.dom)
+    if (this.editorRef.current) {
+      this.editorRef.current.appendChild(this.view.dom)
+    }
+
     this.updateClassList()
   }
 
