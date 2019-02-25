@@ -2,7 +2,7 @@
   "name": "@manuscripts/comment-editor",
   "description": "React components for editing and viewing manuscript comments",
   "version": "0.1.1",
-  "repository": "https://gitlab.com/mpapp-public/manuscripts-comment-editor",
+  "repository": "gitlab:mpapp-public/manuscripts-comment-editor",
   "license": "Apache-2.0",
   "main": "dist/cjs",
   "module": "dist/es",
