@@ -79,10 +79,12 @@ export class CommentField extends React.Component<Props> {
         return false
       },
       nodeViews: {
+        // @ts-ignore (types)
         keyword: createEditableKeywordView(
           props.listKeywords,
           props.createKeyword
         ),
+        // @ts-ignore (types)
         mention: createEditableMentionView(props.listCollaborators),
       },
       state: EditorState.create({

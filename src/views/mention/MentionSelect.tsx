@@ -32,7 +32,7 @@ interface Props {
   handleChange: (id: string) => void
 }
 
-export const MentionSelect: React.SFC<Props> = ({
+export const MentionSelect: React.FC<Props> = ({
   handleChange,
   options,
   portal,
