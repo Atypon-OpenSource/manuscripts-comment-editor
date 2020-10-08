@@ -19,8 +19,9 @@ import { TextSelection } from 'prosemirror-state'
 import { EditorView, NodeView } from 'prosemirror-view'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Creatable } from 'react-select'
-import { OptionsType } from 'react-select/lib/types'
+import { OptionsType } from 'react-select'
+import Creatable from 'react-select/creatable'
+
 import { Keyword } from '../../types'
 import { KeywordSelect } from './KeywordSelect'
 
@@ -85,7 +86,7 @@ export const createEditableKeywordView = (
   }
 
   const updateContents = () => {
-    const options: OptionsType<OptionType> = listKeywords().map(item => ({
+    const options: OptionsType<OptionType> = listKeywords().map((item) => ({
       label: item.name,
       value: item._id,
     }))
@@ -113,11 +114,13 @@ export const createEditableKeywordView = (
         selectRef.current.focus()
       }
     },
-    stopEvent: event => {
+    stopEvent: (event) => {
       return !event.type.startsWith('drag')
     },
     update: (newNode: ProsemirrorNode) => {
-      if (newNode.type.name !== node.type.name) return false
+      if (newNode.type.name !== node.type.name) {
+        return false
+      }
       node = newNode
       updateContents()
       return true

@@ -20,6 +20,7 @@ import {
   wrappingInputRule,
 } from 'prosemirror-inputrules'
 import { NodeSelection } from 'prosemirror-state'
+
 import { schema } from './schema'
 
 export const rules = inputRules({

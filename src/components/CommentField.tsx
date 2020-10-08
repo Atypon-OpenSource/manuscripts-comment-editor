@@ -17,6 +17,7 @@
 import { EditorState } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 import React from 'react'
+
 import { parse } from '../parse'
 import { plugins } from '../plugins'
 import { schema } from '../schema'
@@ -50,7 +51,7 @@ export class CommentField extends React.Component<Props> {
 
     this.view = new EditorView(undefined, {
       attributes,
-      dispatchTransaction: transaction => {
+      dispatchTransaction: (transaction) => {
         const { state, transactions } = this.view.state.applyTransaction(
           transaction
         )
@@ -58,7 +59,10 @@ export class CommentField extends React.Component<Props> {
         this.view.updateState(state)
         this.updateClassList()
 
-        if (this.props.handleChange && transactions.some(tr => tr.docChanged)) {
+        if (
+          this.props.handleChange &&
+          transactions.some((tr) => tr.docChanged)
+        ) {
           this.props.handleChange(serialize(state.doc))
         }
       },
@@ -107,6 +111,7 @@ export class CommentField extends React.Component<Props> {
     }
   }
 
+  // eslint-disable-next-line react/no-deprecated
   public componentWillReceiveProps(nextProps: Props) {
     if (!this.view.hasFocus()) {
       this.view.updateState(

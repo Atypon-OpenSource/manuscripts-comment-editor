@@ -15,6 +15,7 @@
  */
 
 import { DOMSerializer, Node as ProsemirrorNode } from 'prosemirror-model'
+
 import { schema } from './schema'
 
 export const serializer = DOMSerializer.fromSchema(schema)

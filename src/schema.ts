@@ -36,13 +36,13 @@ export const schema = new Schema<Nodes, Marks>({
     bold: {
       parseDOM: [
         {
-          getAttrs: dom =>
+          getAttrs: (dom) =>
             (dom as HTMLElement).style.fontWeight !== 'normal' && null,
           tag: 'b',
         },
         { tag: 'strong' },
         {
-          getAttrs: value =>
+          getAttrs: (value) =>
             /^(bold(er)?|[5-9]\d{2,})$/.test(value as string) && null,
           style: 'font-weight',
         },
@@ -106,14 +106,14 @@ export const schema = new Schema<Nodes, Marks>({
       inline: true,
       parseDOM: [
         {
-          getAttrs: dom => ({
+          getAttrs: (dom) => ({
             keywordID: (dom as HTMLElement).getAttribute('data-keyword'),
             name: (dom as HTMLElement).textContent,
           }),
           tag: 'span.keyword',
         },
       ],
-      toDOM: node => [
+      toDOM: (node) => [
         'span',
         {
           class: 'keyword',
@@ -133,14 +133,14 @@ export const schema = new Schema<Nodes, Marks>({
       inline: true,
       parseDOM: [
         {
-          getAttrs: dom => ({
+          getAttrs: (dom) => ({
             name: (dom as HTMLElement).textContent,
             userID: (dom as HTMLElement).getAttribute('data-user'),
           }),
           tag: 'span.mention',
         },
       ],
-      toDOM: node => [
+      toDOM: (node) => [
         'span',
         {
           class: 'mention',

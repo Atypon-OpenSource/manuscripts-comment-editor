@@ -15,8 +15,9 @@
  */
 
 import React from 'react'
-import { Creatable as CreatableSelect } from 'react-select'
-import { OptionsType } from 'react-select/lib/types'
+import { OptionsType, ValueType } from 'react-select'
+import CreatableSelect from 'react-select/creatable'
+
 import { Keyword } from '../../types'
 import { plainStyles } from '../select'
 
@@ -55,7 +56,7 @@ export class KeywordSelect extends React.Component<Props, State> {
     const { portal, selectRef } = this.props
     const { isLoading, options, selected } = this.state
 
-    const value = options.find(option => option.value === selected)
+    const value = options.find((option) => option.value === selected)
 
     // TODO: sort options?
     // TODO: use menuRenderer to render in popper
@@ -75,7 +76,7 @@ export class KeywordSelect extends React.Component<Props, State> {
     )
   }
 
-  private handleChange = (option?: OptionType | OptionType[] | null) => {
+  private handleChange = (option?: ValueType<OptionType>) => {
     const singleOption = option as OptionType
 
     if (singleOption && singleOption.value) {
@@ -95,7 +96,7 @@ export class KeywordSelect extends React.Component<Props, State> {
       value: keyword._id,
     }
 
-    this.setState(state => ({
+    this.setState((state) => ({
       ...state,
       isLoading: false,
       options: [...state.options, option],

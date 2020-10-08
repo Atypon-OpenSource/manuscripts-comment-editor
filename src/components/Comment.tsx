@@ -17,6 +17,7 @@
 import { EditorState, TextSelection } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 import React from 'react'
+
 import { parse } from '../parse'
 import { schema } from '../schema'
 import { Keyword, UserProfile } from '../types'
@@ -65,6 +66,7 @@ export class Comment extends React.Component<Props> {
     this.updateClassList()
   }
 
+  // eslint-disable-next-line react/no-deprecated
   public componentWillReceiveProps(nextProps: Props) {
     this.view.updateState(
       EditorState.create({

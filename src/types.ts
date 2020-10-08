@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2020 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+interface Model {
+  _id: string
+}
 
-import { DOMParser, ParseOptions } from 'prosemirror-model'
+export interface Keyword extends Model {
+  name: string
+}
 
-import { schema } from './schema'
+export interface BibliographicName {
+  family?: string
+  given?: string
+}
 
-export const parser = DOMParser.fromSchema(schema)
-
-export const parse = (contents = '', options?: ParseOptions) => {
-  const node = document.createElement('div')
-  node.innerHTML = contents
-
-  return parser.parse(node, options)
+export interface UserProfile extends Model {
+  bibliographicName: BibliographicName
 }

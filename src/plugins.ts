@@ -17,6 +17,7 @@
 import { baseKeymap, toggleMark } from 'prosemirror-commands'
 import { history, redo, undo } from 'prosemirror-history'
 import { keymap } from 'prosemirror-keymap'
+
 import { rules } from './rules'
 import { schema } from './schema'
 

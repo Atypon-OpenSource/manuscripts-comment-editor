@@ -19,8 +19,8 @@ import { TextSelection } from 'prosemirror-state'
 import { EditorView, NodeView } from 'prosemirror-view'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Select from 'react-select'
-import { OptionsType } from 'react-select/lib/types'
+import Select, { OptionsType } from 'react-select'
+
 import { BibliographicName, UserProfile } from '../../types'
 import { MentionSelect } from './MentionSelect'
 
@@ -30,7 +30,7 @@ interface OptionType {
 }
 
 const buildName = (name: BibliographicName): string =>
-  [name.given, name.family].filter(item => item).join(' ')
+  [name.given, name.family].filter((item) => item).join(' ')
 
 export const createMentionView = (
   getCollaborator: (id: string) => UserProfile | undefined
@@ -84,10 +84,12 @@ export const createEditableMentionView = (
   }
 
   const updateContents = () => {
-    const options: OptionsType<OptionType> = listCollaborators().map(item => ({
-      label: buildName(item.bibliographicName),
-      value: item._id,
-    }))
+    const options: OptionsType<OptionType> = listCollaborators().map(
+      (item) => ({
+        label: buildName(item.bibliographicName),
+        value: item._id,
+      })
+    )
 
     // TODO: sort options?
     // TODO: use menuRenderer to render in popper
@@ -114,11 +116,13 @@ export const createEditableMentionView = (
         selectRef.current.focus()
       }
     },
-    stopEvent: event => {
+    stopEvent: (event) => {
       return !event.type.startsWith('drag')
     },
     update: (newNode: ProsemirrorNode) => {
-      if (newNode.type.name !== node.type.name) return false
+      if (newNode.type.name !== node.type.name) {
+        return false
+      }
       node = newNode
       updateContents()
       return true

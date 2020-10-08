@@ -15,8 +15,8 @@
  */
 
 import React from 'react'
-import Select from 'react-select'
-import { OptionsType } from 'react-select/lib/types'
+import Select, { OptionsType } from 'react-select'
+
 import { plainStyles } from '../select'
 
 interface OptionType {
@@ -42,9 +42,9 @@ export const MentionSelect: React.FC<Props> = ({
   <Select
     ref={selectRef}
     options={options}
-    value={options.find(option => option.value === selected)}
-    onChange={(option?: OptionType | OptionType[] | null) => {
-      const singleOption = option as OptionType
+    value={options.find((option) => option.value === selected)}
+    onChange={(value) => {
+      const singleOption = value as OptionType
 
       if (singleOption && singleOption.value) {
         handleChange(singleOption.value)

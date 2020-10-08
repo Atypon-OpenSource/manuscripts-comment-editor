@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2020 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-import { DOMParser, ParseOptions } from 'prosemirror-model'
-
-import { schema } from './schema'
-
-export const parser = DOMParser.fromSchema(schema)
-
-export const parse = (contents = '', options?: ParseOptions) => {
-  const node = document.createElement('div')
-  node.innerHTML = contents
-
-  return parser.parse(node, options)
+module.exports = {
+  extends: '@manuscripts/eslint-config',
+  rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+  }
 }
