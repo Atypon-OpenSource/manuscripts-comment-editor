@@ -16,3 +16,5 @@
 
 export { Comment } from './Comment'
 export { CommentField } from './CommentField'
+export { Note } from './manuscriptNote/Note'
+export { NoteField } from './manuscriptNote/NoteField'
