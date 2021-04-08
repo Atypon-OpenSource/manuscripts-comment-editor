@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
+import { CSSProperties } from 'react'
 import { StylesConfig } from 'react-select'
 
 export const plainStyles: StylesConfig = {
-  control: (base) => ({
+  control: (base: CSSProperties) => ({
     ...base,
     background: 'none',
     border: 'none',
@@ -34,12 +35,12 @@ export const plainStyles: StylesConfig = {
   input: () => ({
     width: 1,
   }),
-  menu: (base) => ({
+  menu: (base: CSSProperties) => ({
     ...base,
     fontFamily: 'Barlow, sans-serif',
     width: 'auto',
   }),
-  option: (base) => ({
+  option: (base: CSSProperties) => ({
     ...base,
     maxWidth: 500,
     minWidth: 200,
@@ -49,7 +50,7 @@ export const plainStyles: StylesConfig = {
     whiteSpace: 'nowrap',
     width: 200,
   }),
-  singleValue: (base) => ({
+  singleValue: (base: CSSProperties) => ({
     ...base,
     color: '#617ba8',
     marginLeft: 0,
@@ -59,7 +60,7 @@ export const plainStyles: StylesConfig = {
     transform: 'none',
     width: 'auto',
   }),
-  valueContainer: (base) => ({
+  valueContainer: (base: CSSProperties) => ({
     ...base,
     padding: 0,
   }),

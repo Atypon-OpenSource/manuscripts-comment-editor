@@ -17,11 +17,12 @@
 import { baseKeymap, toggleMark } from 'prosemirror-commands'
 import { history, redo, undo } from 'prosemirror-history'
 import { keymap } from 'prosemirror-keymap'
+import { Plugin } from 'prosemirror-state'
 
 import { rules } from './rules'
 import { schema } from './schema'
 
-export const plugins = [
+export const plugins: Plugin[] = [
   rules,
   keymap(baseKeymap),
   keymap({

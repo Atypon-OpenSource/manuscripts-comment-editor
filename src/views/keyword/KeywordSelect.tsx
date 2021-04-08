@@ -76,7 +76,7 @@ export class KeywordSelect extends React.Component<Props, State> {
     )
   }
 
-  private handleChange = (option?: ValueType<OptionType>) => {
+  private handleChange = (option?: ValueType<OptionType, false>) => {
     const singleOption = option as OptionType
 
     if (singleOption && singleOption.value) {
