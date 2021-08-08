@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2021 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,25 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { baseKeymap, toggleMark } from 'prosemirror-commands'
-import { history, redo, undo } from 'prosemirror-history'
-import { keymap } from 'prosemirror-keymap'
 import { Plugin } from 'prosemirror-state'
+import { Decoration, DecorationSet } from 'prosemirror-view'
 
-import placeholder from './plugin/placeholder'
-import { rules } from './rules'
-import { schema } from './schema'
+export default () => {
+  return new Plugin({
+    props: {
+      decorations: (state) => {
+        const decorations: Decoration[] = []
 
-export const plugins: Plugin[] = [
-  rules,
-  keymap(baseKeymap),
-  keymap({
-    'Mod-b': toggleMark(schema.marks.bold),
-    'Mod-i': toggleMark(schema.marks.italic),
-    'Mod-y': redo,
-    'Mod-z': undo,
-  }),
-  history(),
-  placeholder(),
-]
+        state.doc.descendants((node, pos) => {
+          if (node.type.isBlock && node.childCount === 0) {
+            decorations.push(
+              Decoration.node(pos, pos + node.nodeSize, {
+                class: 'empty-node',
+              })
+            )
+          }
+        })
+
+        return DecorationSet.create(state.doc, decorations)
+      },
+    },
+  })
+}

@@ -57,7 +57,6 @@ export class CommentField extends React.Component<Props> {
         )
 
         this.view.updateState(state)
-        this.updateClassList()
 
         if (
           this.props.handleChange &&
@@ -104,8 +103,6 @@ export class CommentField extends React.Component<Props> {
       this.editorRef.current.appendChild(this.view.dom)
     }
 
-    this.updateClassList()
-
     if (this.props.autoFocus) {
       this.view.focus()
     }
@@ -121,7 +118,6 @@ export class CommentField extends React.Component<Props> {
           schema: this.view.state.schema,
         })
       )
-      this.updateClassList()
     }
   }
 
@@ -132,13 +128,6 @@ export class CommentField extends React.Component<Props> {
         id={this.props.id}
         ref={this.editorRef}
       />
-    )
-  }
-
-  protected updateClassList() {
-    this.view.dom.classList.toggle(
-      'empty-node',
-      this.view.state.doc.childCount === 0
     )
   }
 }
