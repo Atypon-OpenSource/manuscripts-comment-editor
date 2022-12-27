@@ -41,7 +41,7 @@ export class Comment extends React.Component<Props> {
 
     const doc = parse(props.value)
 
-    this.view = new EditorView(undefined, {
+    this.view = new EditorView(null, {
       attributes: {
         class: 'plain',
       },

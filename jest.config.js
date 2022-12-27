@@ -6,4 +6,5 @@ module.exports = {
     '^.+\\.(j|t)sx?$': 'babel-jest',
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!(lodash-es|@manuscripts)/)'],
+  testEnvironment: 'jsdom'
 }
