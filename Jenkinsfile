@@ -23,17 +23,9 @@ node {
         nodejs(nodeJSInstallationName: 'node_16_14_2') {
             sh (script: "yarn install --network-timeout 300000 --frozen-lockfile --non-interactive", returnStdout: true)
             sh (script: "yarn typecheck", returnStdout: true)
-//             sh (script: "yarn lint", returnStdout: true)
+            sh (script: "yarn lint", returnStdout: true)
             sh (script: "yarn test", returnStdout: true)
             sh (script: "yarn build", returnStdout: true)
-        }
-    }
-
-    if (VARS.GIT_BRANCH == "origin/master") {
-        stage("Publish") {
-            withCredentials([string(credentialsId: 'NPM_TOKEN_MANUSCRIPTS_OSS', variable: 'NPM_TOKEN')]) {
-                sh ("npx @manuscripts/publish")
-            }
         }
     }
 }
