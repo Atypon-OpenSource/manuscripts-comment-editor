@@ -52,9 +52,8 @@ export class CommentField extends React.Component<Props> {
     this.view = new EditorView(null, {
       attributes,
       dispatchTransaction: (transaction) => {
-        const { state, transactions } = this.view.state.applyTransaction(
-          transaction
-        )
+        const { state, transactions } =
+          this.view.state.applyTransaction(transaction)
 
         this.view.updateState(state)
 
