@@ -30,7 +30,8 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   createKeyword: (name: string) => Promise<Keyword>
   handleChange?: (value: string) => void
   handleFocus?: (view: EditorView, event: Event) => boolean
-  id?: string
+  handleBlur?: (view: EditorView, event: Event) => boolean
+  id: string
   listCollaborators: () => UserProfile[]
   listKeywords: () => Keyword[]
   value?: string
@@ -47,6 +48,7 @@ export class CommentField extends React.Component<Props> {
 
     const attributes: { [name: string]: string } = {
       class: 'plain comment-editor',
+      'comment-id': this.props.id,
     }
 
     this.view = new EditorView(null, {
@@ -68,6 +70,11 @@ export class CommentField extends React.Component<Props> {
         focus: (view, event) => {
           return this.props.handleFocus
             ? this.props.handleFocus(view, event)
+            : false
+        },
+        blur: (view, event) => {
+          return this.props.handleBlur
+            ? this.props.handleBlur(view, event)
             : false
         },
       },
@@ -121,12 +128,6 @@ export class CommentField extends React.Component<Props> {
   }
 
   public render() {
-    return (
-      <div
-        className={this.props.className}
-        id={this.props.id}
-        ref={this.editorRef}
-      />
-    )
+    return <div className={this.props.className} ref={this.editorRef} />
   }
 }
