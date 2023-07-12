@@ -15,7 +15,7 @@
  */
 
 import React from 'react'
-import { OptionsType, ValueType } from 'react-select'
+import { OnChangeValue, SelectInstance, StylesConfig } from 'react-select'
 import CreatableSelect from 'react-select/creatable'
 
 import { Keyword } from '../../types'
@@ -27,9 +27,9 @@ interface OptionType {
 }
 
 interface Props {
-  options: OptionsType<OptionType>
+  options: OptionType[]
   portal: HTMLElement
-  selectRef: React.RefObject<CreatableSelect<OptionType>>
+  selectRef: React.RefObject<SelectInstance<OptionType>>
   selected: string
   createKeyword: (name: string) => Promise<Keyword>
   handleChange: (id: string) => void
@@ -37,7 +37,7 @@ interface Props {
 
 interface State {
   isLoading: boolean
-  options: OptionsType<OptionType>
+  options: OptionType[]
   selected: string
 }
 
@@ -70,13 +70,13 @@ export class KeywordSelect extends React.Component<Props, State> {
         openMenuOnFocus={true}
         options={options}
         ref={selectRef}
-        styles={plainStyles}
+        styles={plainStyles as StylesConfig<OptionType>}
         value={value}
       />
     )
   }
 
-  private handleChange = (option?: ValueType<OptionType, false>) => {
+  private handleChange = (option?: OnChangeValue<OptionType, false>) => {
     const singleOption = option as OptionType
 
     if (singleOption && singleOption.value) {

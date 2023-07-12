@@ -19,7 +19,7 @@ import { TextSelection } from 'prosemirror-state'
 import { EditorView, NodeView } from 'prosemirror-view'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Select, { OptionsType } from 'react-select'
+import { SelectInstance } from 'react-select'
 
 import { BibliographicName, UserProfile } from '../../types'
 import { MentionSelect } from './MentionSelect'
@@ -59,7 +59,7 @@ export const createEditableMentionView =
     select.style.display = 'inline-block'
     dom.appendChild(select)
 
-    const selectRef = React.createRef<Select<OptionType>>()
+    const selectRef = React.createRef<SelectInstance<OptionType>>()
     const portal = document.getElementById('menu') as HTMLDivElement
 
     const handleChange = (userID: string) => {
@@ -80,12 +80,10 @@ export const createEditableMentionView =
     }
 
     const updateContents = () => {
-      const options: OptionsType<OptionType> = listCollaborators().map(
-        (item) => ({
-          label: buildName(item.bibliographicName),
-          value: item._id,
-        })
-      )
+      const options: OptionType[] = listCollaborators().map((item) => ({
+        label: buildName(item.bibliographicName),
+        value: item._id,
+      }))
 
       // TODO: sort options?
       // TODO: use menuRenderer to render in popper

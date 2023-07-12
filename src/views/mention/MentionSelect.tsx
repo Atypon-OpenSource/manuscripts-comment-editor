@@ -15,7 +15,7 @@
  */
 
 import React from 'react'
-import Select, { OptionsType } from 'react-select'
+import Select, { SelectInstance, StylesConfig } from 'react-select'
 
 import { plainStyles } from '../select'
 
@@ -25,9 +25,9 @@ interface OptionType {
 }
 
 interface Props {
-  options: OptionsType<OptionType>
+  options: OptionType[]
   portal: HTMLDivElement
-  selectRef: React.RefObject<Select<OptionType>>
+  selectRef: React.RefObject<SelectInstance<OptionType>>
   selected: string
   handleChange: (id: string) => void
 }
@@ -52,6 +52,6 @@ export const MentionSelect: React.FC<Props> = ({
     }}
     menuPortalTarget={portal}
     openMenuOnFocus={true}
-    styles={plainStyles}
+    styles={plainStyles as StylesConfig<OptionType>}
   />
 )
