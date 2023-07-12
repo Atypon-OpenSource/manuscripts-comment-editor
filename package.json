@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/comment-editor",
   "description": "React components for editing and viewing manuscript comments",
-  "version": "1.0.1",
+  "version": "1.0.1-LEAN-2035",
   "repository": "github:Atypon-OpenSource/manuscripts-comment-editor.git",
   "license": "Apache-2.0",
   "main": "dist/cjs",
