@@ -19,8 +19,7 @@ import { TextSelection } from 'prosemirror-state'
 import { EditorView, NodeView } from 'prosemirror-view'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { OptionsType } from 'react-select'
-import Creatable from 'react-select/creatable'
+import { SelectInstance } from 'react-select'
 
 import { Keyword } from '../../types'
 import { KeywordSelect } from './KeywordSelect'
@@ -63,7 +62,7 @@ export const createEditableKeywordView =
     select.style.display = 'inline-block'
     dom.appendChild(select)
 
-    const selectRef = React.createRef<Creatable<OptionType>>()
+    const selectRef = React.createRef<SelectInstance<OptionType>>()
     const portal = document.getElementById('menu') as HTMLDivElement
 
     const handleChange = (keywordID: string) => {
@@ -84,7 +83,7 @@ export const createEditableKeywordView =
     }
 
     const updateContents = () => {
-      const options: OptionsType<OptionType> = listKeywords().map((item) => ({
+      const options: OptionType[] = listKeywords().map((item) => ({
         label: item.name,
         value: item._id,
       }))
